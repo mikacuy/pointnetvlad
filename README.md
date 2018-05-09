@@ -5,6 +5,8 @@ Mikaela Angelina Uy and Gim Hee Lee
 
 National University of Singapore
 
+## Introduction
+The PointNetVLAD is a deep network
 ## Benchmark Datasets
 The benchmark datasets for point cloud based place recognition can be downloaded [here](https://drive.google.com/open?id=1Wn1Lvvk0oAkwOUwR0R6apbrekdXAUg7D).
 
