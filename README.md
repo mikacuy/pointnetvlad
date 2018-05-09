@@ -6,4 +6,7 @@ Mikaela Angelina Uy and Gim Hee Lee
 National University of Singapore
 
 ## Benchmark Datasets
-The benchmark datasets for point cloud based place recognition can be downloaded [here](https://drive.google.com/open?id=1Wn1Lvvk0oAkwOUwR0R6apbrekdXAUg7D)
+The benchmark datasets for point cloud based place recognition can be downloaded [here](https://drive.google.com/open?id=1Wn1Lvvk0oAkwOUwR0R6apbrekdXAUg7D).
+
+## Project Code
+The project code will be released soon.
