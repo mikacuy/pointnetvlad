@@ -1,0 +1,4 @@
+*.pyc
+*.pickle
+log*
+results*
