@@ -88,3 +88,7 @@ python evaluate.py
 
 ## Pre-trained Models
 The pre-trained models for both the baseline and refined networks can be downloaded [here](https://drive.google.com/open?id=1wYsJmfd2yfbK9DHjFHwEeU1a_x35od61)
+
+
+## License
+This repository is released under MIT License (see LICENSE file for details).
