@@ -40,4 +40,48 @@ The benchmark datasets introdruced in this work can be downloaded [here](https:/
 * Training submaps are not mutually disjoint per run but test submaps are
 
 ## Project Code
-The project code will be released soon.
+
+### Pre-requisites
+* Python
+* CUDA
+* Tensorflow 
+* Scipy
+* Pandas
+* Sklearn
+
+Code was tested using Python 3 on Tensorflow 1.4.0 with CUDA 8.0
+
+```
+sudo apt-get install python3-pip python3-dev python-virtualenv
+virtualenv --system-site-packages -p python3 ~/tensorflow
+source ~/tensorflow/bin/activate
+easy_install -U pip
+pip3 install --upgrade tensorflow-gpu==1.4.0
+pip install scipy, pandas, sklearn
+```
+### Dataset set-up
+Download the zip file of the benchmark datasets found [here](https://drive.google.com/open?id=1Wn1Lvvk0oAkwOUwR0R6apbrekdXAUg7D). Extract the folder on the same directory as the project code. Thus, on that directory you must have two folders: 1) benchmark_datasets/ and 2) pointnetvlad/
+
+### Generate pickle files
+We store the positive and negative point clouds to each anchor on pickle files that are used in our training and evaluation codes. The files only need to be generated once. The generation of these files may take a few minutes.
+
+```
+# For training tuples in our baseline network
+python generate_training_tuples_baseline.py
+
+# For training tuples in our refined network
+python generate_training_tuples_refine.py
+
+# For network evaluation
+python generate_test_sets.py
+```
+
+### Model Training and Evaluation
+To train our network, run the following command:
+```
+python train_pointnetvlad.py
+```
+To evaluate the model, run the following command:
+```
+python evaluate.py
+```
