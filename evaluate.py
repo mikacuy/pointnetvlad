@@ -43,9 +43,9 @@ if not os.path.exists(RESULTS_FOLDER): os.mkdir(RESULTS_FOLDER)
 DATABASE_FILE= 'generating_queries/oxford_evaluation_database.pickle'
 QUERY_FILE= 'generating_queries/oxford_evaluation_query.pickle'
 
-LOG_DIR = '/media/deep-three/Deep_Store/Deep_Store_Files/final_models/Train_on_Oxford/netvlad_13_101/'
+LOG_DIR = 'log/'
 output_file= RESULTS_FOLDER +'results.txt'
-model_file= "model13_101.ckpt"
+model_file= "model.ckpt"
 
 DATABASE_SETS= get_sets_dict(DATABASE_FILE)
 QUERY_SETS= get_sets_dict(QUERY_FILE)
