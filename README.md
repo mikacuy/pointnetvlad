@@ -49,14 +49,14 @@ The benchmark datasets introdruced in this work can be downloaded [here](https:/
 * Pandas
 * Sklearn
 
-Code was tested using Python 3 on Tensorflow 1.6.0 with CUDA 8.0
+Code was tested using Python 3 on Tensorflow 1.4.0 with CUDA 8.0
 
 ```
 sudo apt-get install python3-pip python3-dev python-virtualenv
 virtualenv --system-site-packages -p python3 ~/tensorflow
 source ~/tensorflow/bin/activate
 easy_install -U pip
-pip3 install --upgrade tensorflow-gpu==1.6.0
+pip3 install --upgrade tensorflow-gpu==1.4.0
 pip install scipy, pandas, sklearn
 ```
 ### Dataset set-up
