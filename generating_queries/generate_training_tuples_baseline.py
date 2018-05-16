@@ -6,13 +6,14 @@ from sklearn.neighbors import KDTree
 import pickle
 import random
 
-base_path = "/media/deep-three/Deep_Store/CVPR2018/benchmark_datasets/"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+base_path = "../../benchmark_datasets/"
 
 runs_folder= "oxford/"
 filename = "pointcloud_locations_20m_10overlap.csv"
 pointcloud_fols="/pointcloud_20m_10overlap/"
 
-all_folders=sorted(os.listdir(os.path.join(base_path,runs_folder)))
+all_folders=sorted(os.listdir(os.path.join(BASE_DIR,base_path,runs_folder)))
 
 folders=[]
 

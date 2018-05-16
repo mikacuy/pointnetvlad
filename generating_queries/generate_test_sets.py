@@ -100,12 +100,13 @@ def construct_query_and_database_sets(base_path, runs_folder, folders, pointclou
 	output_to_file(test_sets, output_name+'_evaluation_query.pickle')
 
 ###Building database and query files for evaluation
-base_path= "/media/deep-three/Deep_Store/CVPR2018/benchmark_datasets/"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+base_path= "../../benchmark_datasets/"
 
 #For Oxford
 folders=[]
 runs_folder = "oxford/"
-all_folders=sorted(os.listdir(os.path.join(base_path,runs_folder)))
+all_folders=sorted(os.listdir(os.path.join(BASE_DIR,base_path,runs_folder)))
 index_list=[5,6,7,9,10,11,12,13,14,15,16,17,18,19,22,24,31,32,33,38,39,43,44]
 print(len(index_list))
 for index in index_list:
@@ -117,7 +118,7 @@ construct_query_and_database_sets(base_path, runs_folder, folders, "/pointcloud_
 #For University Sector
 folders=[]
 runs_folder = "inhouse_datasets/"
-all_folders=sorted(os.listdir(os.path.join(base_path,runs_folder)))
+all_folders=sorted(os.listdir(os.path.join(BASE_DIR,base_path,runs_folder)))
 uni_index=range(10,15)
 for index in uni_index:
 	folders.append(all_folders[index])
@@ -128,7 +129,7 @@ construct_query_and_database_sets(base_path, runs_folder, folders, "/pointcloud_
 #For Residential Area
 folders=[]
 runs_folder = "inhouse_datasets/"
-all_folders=sorted(os.listdir(os.path.join(base_path,runs_folder)))
+all_folders=sorted(os.listdir(os.path.join(BASE_DIR,base_path,runs_folder)))
 res_index=range(5,10)
 for index in res_index:
 	folders.append(all_folders[index])
@@ -139,7 +140,7 @@ construct_query_and_database_sets(base_path, runs_folder, folders, "/pointcloud_
 #For Business District
 folders=[]
 runs_folder = "inhouse_datasets/"
-all_folders=sorted(os.listdir(os.path.join(base_path,runs_folder)))
+all_folders=sorted(os.listdir(os.path.join(BASE_DIR,base_path,runs_folder)))
 bus_index=range(1,5)
 for index in bus_index:
 	folders.append(all_folders[index])
