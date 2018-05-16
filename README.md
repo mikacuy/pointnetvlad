@@ -60,7 +60,7 @@ pip3 install --upgrade tensorflow-gpu==1.4.0
 pip install scipy, pandas, sklearn
 ```
 ### Dataset set-up
-Download the zip file of the benchmark datasets found [here](https://drive.google.com/open?id=1Wn1Lvvk0oAkwOUwR0R6apbrekdXAUg7D). Extract the folder on the same directory as the project code. Thus, on that directory you must have two folders: 1) benchmark_datasets/ and 2) pointnetvlad/
+Download the zip file of the benchmark datasets found [here](https://drive.google.com/open?id=1rflmyfZ1v9cGGH0RL4qXRrKhg-8A-U9q). Extract the folder on the same directory as the project code. Thus, on that directory you must have two folders: 1) benchmark_datasets/ and 2) pointnetvlad/
 
 ### Generate pickle files
 We store the positive and negative point clouds to each anchor on pickle files that are used in our training and evaluation codes. The files only need to be generated once. The generation of these files may take a few minutes.
@@ -85,3 +85,6 @@ To evaluate the model, run the following command:
 ```
 python evaluate.py
 ```
+
+## Pre-trained Models
+The pre-trained models for both the baseline and refined networks can be downloaded [here](https://drive.google.com/open?id=1wYsJmfd2yfbK9DHjFHwEeU1a_x35od61)
