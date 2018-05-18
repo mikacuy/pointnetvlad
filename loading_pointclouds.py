@@ -138,6 +138,64 @@ def get_query_tuple(dict_value, num_pos, num_neg, QUERY_DICT, hard_neg=[], other
 		return [query,positives,negatives,neg2]
 
 
+def get_rotated_tuple(dict_value, num_pos, num_neg, QUERY_DICT, hard_neg=[],other_neg=False):
+	query=load_pc_file(dict_value["query"]) #Nx3
+	q_rot= rotate_point_cloud(np.expand_dims(query, axis=0))
+	q_rot= np.squeeze(q_rot)
+
+	random.shuffle(dict_value["positives"])
+	pos_files=[]
+	for i in range(num_pos):
+		pos_files.append(QUERY_DICT[dict_value["positives"][i]]["query"])
+	#positives= load_pc_files(dict_value["positives"][0:num_pos])
+	positives=load_pc_files(pos_files)
+	p_rot= rotate_point_cloud(positives)
+
+	neg_files=[]
+	neg_indices=[]
+	if(len(hard_neg)==0):
+		random.shuffle(dict_value["negatives"])
+		for i in range(num_neg):
+			neg_files.append(QUERY_DICT[dict_value["negatives"][i]]["query"])
+			neg_indices.append(dict_value["negatives"][i])
+	else:
+		random.shuffle(dict_value["negatives"])
+		for i in hard_neg:
+			neg_files.append(QUERY_DICT[i]["query"])
+			neg_indices.append(i)
+		j=0
+		while(len(neg_files)<num_neg):
+			if not dict_value["negatives"][j] in hard_neg:
+				neg_files.append(QUERY_DICT[dict_value["negatives"][j]]["query"])
+				neg_indices.append(dict_value["negatives"][j])
+			j+=1	
+	negatives=load_pc_files(neg_files)
+	n_rot=rotate_point_cloud(negatives)
+
+	if(other_neg==False):
+		return [q_rot,p_rot,n_rot]
+
+	#For Quadruplet Loss
+	else:
+		#get neighbors of negatives and query
+		neighbors=[]
+		for pos in dict_value["positives"]:
+			neighbors.append(pos)
+		for neg in neg_indices:
+			for pos in QUERY_DICT[neg]["positives"]:
+				neighbors.append(pos)
+		possible_negs= list(set(QUERY_DICT.keys())-set(neighbors))
+		random.shuffle(possible_negs)
+
+		if(len(possible_negs)==0):
+			return [q_jit, p_jit, n_jit, np.array([])]
+
+		neg2= load_pc_file(QUERY_DICT[possible_negs[0]]["query"])
+		n2_rot= rotate_point_cloud(np.expand_dims(neg2, axis=0))
+		n2_rot= np.squeeze(n2_rot)
+
+		return [q_rot,p_rot,n_rot,n2_rot]
+
 def get_jittered_tuple(dict_value, num_pos, num_neg, QUERY_DICT, hard_neg=[],other_neg=False):
 	query=load_pc_file(dict_value["query"]) #Nx3
 	#q_rot= rotate_point_cloud(np.expand_dims(query, axis=0))

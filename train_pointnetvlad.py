@@ -181,7 +181,7 @@ def train():
                'other_neg_vec': other_neg_vec}
 
 
-        for epoch in range(7,MAX_EPOCH):
+        for epoch in range(MAX_EPOCH):
             print(epoch)
             print()
             log_string('**** EPOCH %03d ****' % (epoch))
@@ -219,6 +219,7 @@ def train_one_epoch(sess, ops, train_writer, test_writer, epoch, saver):
             #no cached feature vectors               
             if(len(TRAINING_LATENT_VECTORS)==0):
                 q_tuples.append(get_query_tuple(TRAINING_QUERIES[batch_keys[j]],POSITIVES_PER_QUERY,NEGATIVES_PER_QUERY, TRAINING_QUERIES, hard_neg=[], other_neg=True))
+                # q_tuples.append(get_rotated_tuple(TRAINING_QUERIES[batch_keys[j]],POSITIVES_PER_QUERY,NEGATIVES_PER_QUERY, TRAINING_QUERIES, hard_neg=[], other_neg=True))
                 # q_tuples.append(get_jittered_tuple(TRAINING_QUERIES[batch_keys[j]],POSITIVES_PER_QUERY,NEGATIVES_PER_QUERY, TRAINING_QUERIES, hard_neg=[], other_neg=True))
 
             elif(len(HARD_NEGATIVES.keys())==0):
@@ -228,6 +229,7 @@ def train_one_epoch(sess, ops, train_writer, test_writer, epoch, saver):
                 hard_negs= get_random_hard_negatives(query, negatives, num_to_take)
                 print(hard_negs)
                 q_tuples.append(get_query_tuple(TRAINING_QUERIES[batch_keys[j]],POSITIVES_PER_QUERY,NEGATIVES_PER_QUERY, TRAINING_QUERIES, hard_negs, other_neg=True))
+                # q_tuples.append(get_rotated_tuple(TRAINING_QUERIES[batch_keys[j]],POSITIVES_PER_QUERY,NEGATIVES_PER_QUERY, TRAINING_QUERIES, hard_negs, other_neg=True))
                 # q_tuples.append(get_jittered_tuple(TRAINING_QUERIES[batch_keys[j]],POSITIVES_PER_QUERY,NEGATIVES_PER_QUERY, TRAINING_QUERIES, hard_negs, other_neg=True))
             else:
                 query=get_feature_representation(TRAINING_QUERIES[batch_keys[j]]['query'], sess, ops)
@@ -237,6 +239,7 @@ def train_one_epoch(sess, ops, train_writer, test_writer, epoch, saver):
                 hard_negs= list(set().union(HARD_NEGATIVES[batch_keys[j]], hard_negs))
                 print('hard',hard_negs)
                 q_tuples.append(get_query_tuple(TRAINING_QUERIES[batch_keys[j]],POSITIVES_PER_QUERY,NEGATIVES_PER_QUERY, TRAINING_QUERIES, hard_negs, other_neg=True))           
+                # q_tuples.append(get_rotated_tuple(TRAINING_QUERIES[batch_keys[j]],POSITIVES_PER_QUERY,NEGATIVES_PER_QUERY, TRAINING_QUERIES, hard_negs, other_neg=True))           
                 # q_tuples.append(get_jittered_tuple(TRAINING_QUERIES[batch_keys[j]],POSITIVES_PER_QUERY,NEGATIVES_PER_QUERY, TRAINING_QUERIES, hard_negs, other_neg=True))
             
             if(q_tuples[j][3].shape[0]!=NUM_POINTS):
