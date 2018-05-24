@@ -66,6 +66,8 @@ Download the zip file of the benchmark datasets found [here](https://drive.googl
 We store the positive and negative point clouds to each anchor on pickle files that are used in our training and evaluation codes. The files only need to be generated once. The generation of these files may take a few minutes.
 
 ```
+cd generating_queries/ 
+
 # For training tuples in our baseline network
 python generate_training_tuples_baseline.py
 
