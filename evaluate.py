@@ -19,7 +19,6 @@ parser.add_argument('--gpu', type=int, default=0, help='GPU to use [default: GPU
 parser.add_argument('--positives_per_query', type=int, default=4, help='Number of potential positives in each training tuple [default: 2]')
 parser.add_argument('--negatives_per_query', type=int, default=12, help='Number of definite negatives in each training tuple [default: 20]')
 parser.add_argument('--batch_num_queries', type=int, default=3, help='Batch Size during training [default: 1]')
-parser.add_argument('--learning_rate', type=float, default=0.00001, help='Initial learning rate [default: 0.001]')
 parser.add_argument('--dimension', type=int, default=256)
 parser.add_argument('--decay_step', type=int, default=200000, help='Decay step for lr decay [default: 200000]')
 parser.add_argument('--decay_rate', type=float, default=0.7, help='Decay rate for lr decay [default: 0.8]')
@@ -130,9 +129,6 @@ def evaluate():
         for j in range(len(QUERY_SETS)):
             QUERY_VECTORS.append(get_latent_vectors(sess, ops, QUERY_SETS[j]))
 
-        worst_similarity=10
-        database=''
-        query=''
         for m in range(len(QUERY_SETS)):
             for n in range(len(QUERY_SETS)):
                 if(m==n):
