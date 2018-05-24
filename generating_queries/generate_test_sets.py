@@ -78,7 +78,7 @@ def construct_query_and_database_sets(base_path, runs_folder, folders, pointclou
 		for index,row in df_locations.iterrows():				
 			#entire business district is in the test set
 			if(output_name=="business"):
-				df_test=df_test.append(row, ignore_index=True)
+				test[len(test.keys())]={'query':row['file'],'northing':row['northing'],'easting':row['easting']}
 			elif(check_in_test_set(row['northing'], row['easting'], p, x_width, y_width)):
 				test[len(test.keys())]={'query':row['file'],'northing':row['northing'],'easting':row['easting']}
 			database[len(database.keys())]={'query':row['file'],'northing':row['northing'],'easting':row['easting']}
@@ -141,7 +141,7 @@ construct_query_and_database_sets(base_path, runs_folder, folders, "/pointcloud_
 folders=[]
 runs_folder = "inhouse_datasets/"
 all_folders=sorted(os.listdir(os.path.join(BASE_DIR,base_path,runs_folder)))
-bus_index=range(1,5)
+bus_index=range(5)
 for index in bus_index:
 	folders.append(all_folders[index])
 

@@ -243,7 +243,7 @@ def get_recall(sess, ops, m, n):
 
     top1_similarity_score=[]
     one_percent_retrieved=0
-    threshold=max(len(database_output)//100,1)
+    threshold=max(int(round(len(database_output)/100.0)),1)
 
     num_evaluated=0
     for i in range(len(queries_output)):
