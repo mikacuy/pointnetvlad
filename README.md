@@ -32,7 +32,7 @@ The benchmark datasets introdruced in this work can be downloaded [here](https:/
 * Test/Inference submaps found in the folder "pointcloud_20m/" and its corresponding csv file is "pointcloud_locations_20m.csv"
 * Test/Inference submaps are mutually disjoint
 
-### Inhouse Datasets
+### NUS (Inhouse) Datasets
 
 * Each inhouse dataset has 5 runs
 * Training submaps are found in the folder "pointcloud_25m_10/" and its corresponding csv file is "pointcloud_centroids_10.csv"
