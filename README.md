@@ -13,7 +13,7 @@ The PointNetVLAD is a deep network that addresses the problem of large-scale pla
 @article{uy2018pointnetvlad,
       title={PointNetVLAD: Deep Point Cloud Based Retrieval for Large-Scale Place Recognition},
       author={Uy, Mikaela Angelina and Lee, Gim Hee},
-      booktitle={CVPR},
+      booktitle={The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
       year={2018}
 }
 ```
