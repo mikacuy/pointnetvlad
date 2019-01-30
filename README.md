@@ -93,5 +93,10 @@ python evaluate.py
 ## Pre-trained Models
 The pre-trained models for both the baseline and refined networks can be downloaded [here](https://drive.google.com/open?id=1wYsJmfd2yfbK9DHjFHwEeU1a_x35od61)
 
+## Submap generation
+Added the rough MATLAB code that was used for submap generation upon requests. Some functions are gotten from the toolbox of [Oxford Robotcar](https://robotcar-dataset.robots.ox.ac.uk/).
+
+Some clarification: The voxel grid filter was used to downsample the cloud to 4096, which was done by selecting a leaf size that initialially downsamples the cloud close to 4096 points, after which we randomly add points to make the cloud have exactly 4096 points. Please feel free to send me an email for any further questions.
+
 ## License
 This repository is released under MIT License (see LICENSE file for details).
