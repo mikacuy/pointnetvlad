@@ -10,7 +10,7 @@ National University of Singapore
 ## Introduction
 The PointNetVLAD is a deep network that addresses the problem of large-scale place recognition through point cloud based retrieval. The arXiv version of PointNetVLAD can be found [here](https://arxiv.org/abs/1804.03492).
 ```
-@article{uy2018pointnetvlad,
+@inproceedings{uy2018pointnetvlad,
       title={PointNetVLAD: Deep Point Cloud Based Retrieval for Large-Scale Place Recognition},
       author={Uy, Mikaela Angelina and Lee, Gim Hee},
       booktitle={The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
