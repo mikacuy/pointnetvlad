@@ -96,7 +96,7 @@ The pre-trained models for both the baseline and refined networks can be downloa
 ## Submap generation
 Added the rough MATLAB code that was used for submap generation upon requests. Some functions are gotten from the toolbox of [Oxford Robotcar](https://robotcar-dataset.robots.ox.ac.uk/).
 
-Some clarification: The voxel grid filter was used to downsample the cloud to 4096, which was done by selecting a leaf size that initially downsamples the cloud close to 4096 points, after which we randomly add points to make the cloud have exactly 4096 points. Please feel free to send me an email for any further questions.
+Some clarification: The voxel grid filter was used to downsample the cloud to 4096, which was done by selecting a leaf size that initially downsamples the cloud close to 4096 points, after which we randomly add points to make the cloud have exactly 4096 points. Please feel free to send me an email (mikacuy@gmail.com) for any further questions.
 
 ## License
 This repository is released under MIT License (see LICENSE file for details).
